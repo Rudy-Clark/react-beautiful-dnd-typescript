@@ -40,8 +40,8 @@ const Task: React.FC<Props> = ({ task, index }) => (
   <Draggable draggableId={task.id} index={index}>
     {(provided, snapshot) => (
       <Container
+      {...provided.dragHandleProps}
         {...provided.draggableProps}
-        {...provided.dragHandleProps}
         ref={provided.innerRef}
         isDragging={snapshot.isDragging}
       >

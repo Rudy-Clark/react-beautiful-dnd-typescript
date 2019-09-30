@@ -14,17 +14,25 @@ interface Props {
 interface TaskList {
   isDragging: boolean
 }
+
 const Container = styled.div`
   margin: 8px;
   border: 1px solid lightgrey;
   border-radius: 2px;
+  width: 320px;
+  display: flex;
+  flex-flow: column wrap;
 `;
+
 const Title = styled.h3`
   padding: 8px;
 `;
+
 const TaskList = styled.div`
   padding: 8px;
-  background-color: ${ (props: TaskList) => props.isDragging ? 'skyblue' : '#fff' }
+  background-color: ${ (props: TaskList) => props.isDragging ? 'skyblue' : '#fff' };
+  flex-grow: 1;
+  min-height: 100px;
 `;
 
 const Column: React.FC<Props> = ({ column, tasks }) => (
