@@ -1,20 +1,22 @@
 // @ts-ignore
-interface Tasks {
-  [key: string]: {
-      id: string,
-      content: string,
-  },
+export interface ITask {
+  id: string,
+  content: string
 }
 
-interface Columns {
+export interface IColumn {
   id: string,
   title: string,
   taskIds: string[]
 }
 
 export interface InitialData  {
-  tasks: Tasks,
-  columns: Columns
+  tasks: {
+    [key: string]: ITask
+  },
+  columns: {
+    [key: string]: IColumn
+  },
   columnOrder: string[]
 }
 
@@ -26,9 +28,11 @@ const initialData: Readonly<InitialData> = {
     'task-4': { id: 'task-4', content: 'Cook dinner' },
   },
   columns: {
-    id: 'column-1',
-    title: 'To do',
-    taskIds: ['task-1', 'task-2', 'task-3', 'task-4'],
+    'column-1': {
+      id: 'column-1',
+      title: 'To do',
+      taskIds: ['task-1', 'task-2', 'task-3', 'task-4'],
+    },
   },
   columnOrder: ['column-1'],
 };
